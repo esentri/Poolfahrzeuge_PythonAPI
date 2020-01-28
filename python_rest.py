@@ -7,8 +7,8 @@ from flask_cors import CORS
 app = Flask(__name__)
 
 #enable CORS 
-#CORS(app, resources={r"/car": {"origins": "*"}})
-CORS(app)
+cors=CORS(app, resources={r"/car": {"origins": "*"}})
+
 # connect to already existing and running Database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:@0.0.0.0:5432/esentricar'
 
