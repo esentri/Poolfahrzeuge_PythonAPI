@@ -1,0 +1,21 @@
+<div>
+    <h2>Daten des neuen Fahrzeugs</h2>
+        <span>Kennzeichen:
+        <input #carlicense_plate />
+        </span><br>
+        <span>Fahrzeugtyp:
+        <input #cartype />
+        </span><br>
+        <span>Kraftstoff:
+        <input #carfuel />
+        </span><br>
+        <span>AnzahlSitzplätze:
+        <input #carnumber_of_seats/>
+        </span> <br>
+        
+    <button (click)=
+        "add(carlicense_plate.value,cartype.value,carfuel.value,carnumber_of_seats.value)">
+      hinzufügen
+    </button>
+    <p><button (click)="goBack()">go back</button></p>
+</div>

@@ -1,0 +1,14 @@
+<h2>My Cars</h2>
+<nav>
+  <a routerLink="/newcar"><b>Neues Fahrzeug hinzufügen</b></a>
+</nav>
+
+<ul class="cars">
+  <li *ngFor="let car of cars">
+    <a routerLink="/cars/{{car.car_id}}">
+    <span class="badge">{{car.car_id}}</span> {{car.license_plate}}
+    </a>
+    <button class="delete" title="delete car"
+    (click)="delete(car)">x</button>
+  </li>
+</ul>
