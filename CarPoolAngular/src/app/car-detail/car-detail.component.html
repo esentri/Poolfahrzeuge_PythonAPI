@@ -1,0 +1,9 @@
+<div *ngIf="car">
+    <h2>{{car.license_plate | uppercase}} Details</h2>
+    <div><span>id: </span>{{car.car_id}}</div>
+    <div><span>Kennzeichen: </span>{{car.license_plate}}</div>
+    <div><span>Fahrzeugtyp: </span>{{car.car_type}}</div>
+    <div><span>Treibstoff: </span>{{car.fuel}}</div>
+    <div><span>Sitzplätze: </span>{{car.number_of_seats}}</div>
+    <button (click)="goBack()">go back</button>
+</div>
