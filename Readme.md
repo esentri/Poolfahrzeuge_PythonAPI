@@ -1,60 +1,30 @@
-arpool Registry Service Usage
+# Carpool Webapplikation mit PYTHON REST API und Docker Datenbank
 
-All responses will have the form
 
-{ "data": "Mixed type holding the content of the response", "message": "Description of what happened" }
+## Ziel:
+    Eine Postgresql Datenbank soll über Docker betrieben werden und mithilfe einer Python REST API in einer Webapplikation mit Angular demonstriert werden.
 
-List all cars
+## Aufbau:
 
-Definition
+    *PythonAPI
+        In dieser Datei findet ihr alles was ihr für die REST API in Python benötigt.
+    *CARPoolAngular/
+        Hier findet ihr die Angular Webapplikation, mit Ausnahme der node_module
 
-GET /cars
+## Installation:
 
-Response
+ Sowohl zu der Erstellung einer Python REST API, als auch zu der Erstellung der Webapplikation, habe ich einen Blogpost erfasst, diese findet ihr unter:
+    * Python REST API: https://www.esentri.com/python-rest-api-101
+    * Angular : https://www.esentri.com/angular-demonstration-rest-api
+#### Generell
+    * Klonen des Git Repository in eurem lokalen Ordner
+#### Python REST API
+    * Python Umgebung installieren, siehe dazu den Blogpost Python REST API, dort erkläre ich alles von Anfang bis Ende
+####  Für Angular Webapplikation
+    * Node.js installieren, falls nichts vorhanden https://nodejs.org/en/download/
+    * In deinem lokalen CarPoolAngular Verzeichnis den Befehl ‘npm install‘ ausführen, um die node_modules zu erzeugen
+    * 'ng serve --open' öffnet einen Dev Server mit 'http://localhost:4200/'
+    
 
-200 OK on success
 
-[ { "license_plate": "KA-ES-120", "car_type": "Audi A5", } ]
 
-Registering a new car
-
-Definition
-
-POST /car
-
-Arguments
-
-"license_plate":string a globally unique identifier for this car
-"car_type":string the type of the car as understood by the client
-"fuel": string the type of fuel the car uses
-"number_of_seats": integer the number of seats the car has
-
-If a car with the given identifier already exists, the existing device will be overwritten.
-
-Response
-
-201 Created on success
-
-{ "license_plate": "KA-ES-120", "car_type": "Audi A5", "fuel": "Diesel", "number_of_seats": 5 }
-
-Lookup car details
-
-GET /car/
-
-Response
-
-404 Not Found if the device does not exist
-200 OK on success
-
-{ "license_plate": "KA-ES-120", "car_type": "Audi A5", "fuel": "Diesel", "number_of_seats": "5" }
-
-Delete a car
-
-Definition
-
-DELETE /car/
-
-Response
-
-404 Not Found if the car does not exist
-204 No Content on success
